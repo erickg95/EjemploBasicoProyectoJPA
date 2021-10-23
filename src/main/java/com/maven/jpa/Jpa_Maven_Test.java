@@ -19,6 +19,15 @@ public class Jpa_Maven_Test {
 
 	public static void main(String[] args) {
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// aplicamos una variable de tipo  entitymanagefactory
 		EntityManagerFactory factory=Persistence.createEntityManagerFactory("Proyecto-Maven-CibertecIII");	
 		// aplicamos una variable de tipo  entitymanager
@@ -49,6 +58,37 @@ public class Jpa_Maven_Test {
         
         
 	}  //fin  del metodo  principal.....
+	
+	
+	
+	
+	
+	// Crear método buscar alumno por código
+	
+			public List<Alumno> BuscarAlumno (int cod)
+			{
+				// Declaramos una variable de tipo cadena
+				// Paramétros dinámicos por nombre
+				
+				String buscar= "select e from Alumno e where e.idalumno =:codigo";
+				
+				// Aplicamos la interfaz query
+				
+				Query buscaralu = manager.createQuery(buscar,Alumno.class).setParameter("codigo", cod);
+				
+				// Declaramos una variable de tipo empleado
+				
+				List<Alumno> mostraralumno = buscaralu.getResultList();
+				
+				// Retornamos el valor buscado
+				
+				return mostraralumno;
+				
+			} // Fin del método buscar alumno
+	
+	
+	
+	
 	
 	//creamos el metodo insertar alumno
 	public void InsertarAlumno(){
